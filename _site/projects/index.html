@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Projects | initdotbug</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Projects" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A developer’s journey through code, learning, and experiments. Sharing insights, projects, and quick references for the tech community." />
+<meta property="og:description" content="A developer’s journey through code, learning, and experiments. Sharing insights, projects, and quick references for the tech community." />
+<link rel="canonical" href="http://localhost:4000/projects/" />
+<meta property="og:url" content="http://localhost:4000/projects/" />
+<meta property="og:site_name" content="initdotbug" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Projects" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"A developer’s journey through code, learning, and experiments. Sharing insights, projects, and quick references for the tech community.","headline":"Projects","url":"http://localhost:4000/projects/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css">
+  <link rel="icon" type="./img/" href="/assets/img/initdotbug.png"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="initdotbug" /><script>
+    // Theme toggle functionality
+    const getTheme = () => localStorage.getItem('theme') || 'light';
+    const setTheme = (theme) => {
+      localStorage.setItem('theme', theme);
+      document.documentElement.setAttribute('data-theme', theme);
+    };
+    
+    // Set theme before page loads
+    setTheme(getTheme());
+  </script>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="wrapper">
+      <a class="site-title" href="/">
+        <span class="logo">🪲</span>
+        initdotbug
+      </a>
+
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="m18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484s0.665-1.484,1.484-1.484 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          <a class="page-link" href="/">Home</a>
+          <a class="page-link" href="/projects/">Projects</a>
+          <a class="page-link" href="/blog/">Blog</a>
+          <a class="page-link" href="/notes/">Notes</a>
+          <a class="page-link" href="/categories/">Categories</a>
+          <a class="page-link" href="/about/">About</a>
+          
+          <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+            <span class="theme-icon">🌙</span>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-content">
+    <div class="wrapper">
+      <div class="projects-page">
+  <header class="page-header">
+    <h1>Projects</h1>
+    <p>A showcase of my development work and experiments</p>
+  </header>
+
+  <div class="projects-filter">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="web">Web</button>
+    <button class="filter-btn" data-filter="mobile">Mobile</button>
+    <button class="filter-btn" data-filter="cli">CLI</button>
+    <button class="filter-btn" data-filter="library">Library</button>
+  </div>
+
+  <div class="projects-grid">
+    
+      <article class="project-card" data-category="mobile">
+        
+          <div class="project-image">
+            <img src="https://molodost.bz/upload/photos/2024/08/qlQwI5O3gdGmCIoI6amV_18_67a26600a94e59172e16b410cd2514cd_image.jpeg" alt="TaskFlow - Task Management App" loading="lazy">
+          </div>
+        
+        
+        <div class="project-content">
+          <header class="project-header">
+            <h3><a href="/projects/2024-01-01-taskflow-app/">TaskFlow - Task Management App</a></h3>
+            
+              <span class="status status-in progress">In Progress</span>
+            
+          </header>
+
+          <p class="project-description">A lightweight, high-performance SQL formatter plugin for Neovim that leverages `sqlparse` for optimal formatting results with a Lua fallback for basic formatting.</p>
+
+          
+            <div class="tech-stack">
+              
+                <span class="tech">NeoVim</span>
+              
+                <span class="tech">Plugin</span>
+              
+                <span class="tech">Sql</span>
+              
+                <span class="tech">Auto</span>
+              
+              
+            </div>
+          
+
+          <footer class="project-footer">
+            <div class="project-links">
+              
+                <a href="#" class="project-link demo" target="_blank" rel="noopener">
+                  <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+                    <path d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+                  </svg>
+                  Demo
+                </a>
+              
+              
+                <a href="https://github.com/andev0x/sql-formatter.nvim" class="project-link github" target="_blank" rel="noopener">
+                  <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                  </svg>
+                  Code
+                </a>
+              
+              <a href="/projects/2024-01-01-taskflow-app/" class="project-link details">
+                Details →
+              </a>
+            </div>
+
+            <time class="project-date" datetime="2025-01-01T00:00:00+00:00">
+              2025
+            </time>
+          </footer>
+        </div>
+      </article>
+    
+  </div>
+
+  
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const filter = this.getAttribute('data-filter');
+        
+        // Update active button
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        this.classList.add('active');
+        
+        // Filter projects
+        projectCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (filter === 'all' || category === filter) {
+            card.style.display = 'block';
+            setTimeout(() => {
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0)';
+            }, 10);
+          } else {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+              card.style.display = 'none';
+            }, 300);
+          }
+        });
+      });
+    });
+  });
+</script>
+
+<style>
+  .projects-page {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-color);
+    }
+    
+    p {
+      font-size: 1.1rem;
+      color: #666;
+    }
+  }
+
+  .projects-filter {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    
+    .filter-btn {
+      background: transparent;
+      border: 2px solid var(--border-color);
+      color: var(--text-color);
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      
+      &:hover, &.active {
+        border-color: var(--brand-color);
+        background-color: var(--brand-color);
+        color: white;
+      }
+    }
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+
+  .project-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    }
+    
+    .project-image {
+      height: 200px;
+      overflow: hidden;
+      
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+      
+      &:hover img {
+        transform: scale(1.05);
+      }
+    }
+    
+    .project-content {
+      padding: 1.5rem;
+    }
+    
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+      
+      h3 {
+        margin: 0;
+        font-size: 1.25rem;
+        
+        a {
+          color: var(--text-color);
+          text-decoration: none;
+          
+          &:hover {
+            color: var(--link-color);
+          }
+        }
+      }
+      
+      .status {
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        white-space: nowrap;
+        
+        &.status-completed {
+          background-color: #22c55e;
+          color: white;
+        }
+        
+        &.status-in-progress {
+          background-color: #f59e0b;
+          color: white;
+        }
+        
+        &.status-planned {
+          background-color: #6b7280;
+          color: white;
+        }
+      }
+    }
+    
+    .project-description {
+      color: var(--text-color);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+    
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      
+      .tech {
+        background-color: var(--border-color);
+        color: var(--text-color);
+        padding: 0.25rem 0.75rem;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+      
+      .tech-more {
+        color: #666;
+        font-size: 0.8rem;
+        font-style: italic;
+        align-self: center;
+      }
+    }
+    
+    .project-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      
+      .project-links {
+        display: flex;
+        gap: 0.75rem;
+        
+        .project-link {
+          display: flex;
+          align-items: center;
+          gap: 0.25rem;
+          padding: 0.5rem 0.75rem;
+          border-radius: 6px;
+          text-decoration: none;
+          font-size: 0.85rem;
+          font-weight: 500;
+          transition: all 0.3s ease;
+          
+          &.demo {
+            background-color: var(--brand-color);
+            color: white;
+            
+            &:hover {
+              background-color: darken(var(--brand-color), 10%);
+            }
+          }
+          
+          &.github {
+            background-color: #24292e;
+            color: white;
+            
+            &:hover {
+              background-color: #1a1d20;
+            }
+          }
+          
+          &.details {
+            color: var(--link-color);
+            
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+          
+          svg {
+            flex-shrink: 0;
+          }
+        }
+      }
+      
+      .project-date {
+        color: #666;
+        font-size: 0.85rem;
+        font-weight: 500;
+      }
+    }
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #666;
+    
+    h3 {
+      color: var(--text-color);
+      margin-bottom: 1rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .project-card .project-footer {
+      flex-direction: column;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    
+    .projects-filter {
+      justify-content: flex-start;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+      
+      .filter-btn {
+        white-space: nowrap;
+      }
+    }
+  }
+</style>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrapper">
+      <div class="footer-content">
+        <div class="footer-col">
+          <p>A developer&#39;s journey through code, learning, and experiments. Sharing insights, projects, and quick references for the tech community.</p>
+        </div>
+        <div class="footer-col">
+          <p>
+            <a href="https://anvndev.github.io/anvndev">
+              <svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg"></use></svg>
+              <span class="username">anvndev</span>
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const currentTheme = getTheme();
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      setTheme(newTheme);
+      updateThemeIcon(newTheme);
+    }
+
+    function updateThemeIcon(theme) {
+      const icon = document.querySelector('.theme-icon');
+      icon.textContent = theme === 'light' ? '🌙' : '☀️';
+    }
+
+    // Initialize theme icon
+    document.addEventListener('DOMContentLoaded', () => {
+      updateThemeIcon(getTheme());
+    });
+  </script>
+</body>
+</html>

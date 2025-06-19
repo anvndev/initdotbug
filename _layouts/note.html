@@ -1,0 +1,37 @@
+---
+layout: default
+---
+
+<article class="note">
+  <header class="note-header">
+    <h1 class="note-title">{{ page.title | escape }}</h1>
+    <div class="note-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">
+        {{ page.date | date: site.date_format }}
+      </time>
+      
+      {% if page.tags.size > 0 %}
+        <div class="note-tags">
+          {% for tag in page.tags %}
+            <span class="tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </header>
+
+  <div class="note-content">
+    {{ content }}
+  </div>
+
+  {% if page.references %}
+    <footer class="note-footer">
+      <h4>References</h4>
+      <ul>
+        {% for ref in page.references %}
+          <li><a href="{{ ref.url }}" target="_blank" rel="noopener">{{ ref.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </footer>
+  {% endif %}
+</article>

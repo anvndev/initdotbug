@@ -1,0 +1,330 @@
+---
+layout: default
+title: Blog
+permalink: /blog/
+---
+
+<div class="blog-page">
+  <header class="page-header">
+    <h1>Blog Posts</h1>
+    <p>Thoughts, tutorials, and insights on software development</p>
+  </header>
+
+  <div class="blog-content">
+    <div class="search-box">
+      <input type="text" id="search-input" placeholder="Search posts..." autocomplete="off">
+      <div id="search-results" class="search-results"></div>
+    </div>
+
+    <div class="posts-container">
+      {% for post in paginator.posts %}
+        <article class="post-preview">
+          <header class="post-preview-header">
+            <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+            <div class="post-meta">
+              <time datetime="{{ post.date | date_to_xmlschema }}">
+                {{ post.date | date: site.date_format }}
+              </time>
+              {% if post.reading_time %}
+                <span class="reading-time">{{ post.reading_time }} min read</span>
+              {% endif %}
+            </div>
+          </header>
+
+          <div class="post-excerpt">
+            {{ post.excerpt }}
+          </div>
+
+          {% if post.tags.size > 0 %}
+            <div class="post-tags">
+              {% for tag in post.tags limit:3 %}
+                <span class="tag">{{ tag }}</span>
+              {% endfor %}
+              {% if post.tags.size > 3 %}
+                <span class="tag-more">+{{ post.tags.size | minus: 3 }} more</span>
+              {% endif %}
+            </div>
+          {% endif %}
+
+          <footer class="post-preview-footer">
+            <a href="{{ post.url | relative_url }}" class="read-more">Read full post →</a>
+          </footer>
+        </article>
+      {% endfor %}
+    </div>
+
+    <!-- Pagination -->
+    {% if paginator.total_pages > 1 %}
+      <nav class="pagination">
+        {% if paginator.previous_page %}
+          <a href="{{ paginator.previous_page_path | relative_url }}" class="pagination-link">&laquo; Newer</a>
+        {% endif %}
+
+        <span class="pagination-info">
+          Page {{ paginator.page }} of {{ paginator.total_pages }}
+        </span>
+
+        {% if paginator.next_page %}
+          <a href="{{ paginator.next_page_path | relative_url }}" class="pagination-link">Older &raquo;</a>
+        {% endif %}
+      </nav>
+    {% endif %}
+  </div>
+</div>
+
+<script>
+  // Simple search functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('search-input');
+    const searchResults = document.getElementById('search-results');
+    const posts = [
+      {% for post in site.posts %}
+        {
+          title: "{{ post.title | escape }}",
+          url: "{{ post.url | relative_url }}",
+          excerpt: "{{ post.excerpt | strip_html | escape }}",
+          tags: [{% for tag in post.tags %}"{{ tag }}"{% unless forloop.last %},{% endunless %}{% endfor %}]
+        }{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ];
+
+    searchInput.addEventListener('input', function() {
+      const query = this.value.toLowerCase().trim();
+      
+      if (query.length < 2) {
+        searchResults.style.display = 'none';
+        return;
+      }
+
+      const filteredPosts = posts.filter(post => 
+        post.title.toLowerCase().includes(query) ||
+        post.excerpt.toLowerCase().includes(query) ||
+        post.tags.some(tag => tag.toLowerCase().includes(query))
+      );
+
+      if (filteredPosts.length > 0) {
+        searchResults.innerHTML = filteredPosts.slice(0, 5).map(post => 
+          `<div class="search-result">
+            <a href="${post.url}">${post.title}</a>
+            <p>${post.excerpt.substring(0, 150)}...</p>
+          </div>`
+        ).join('');
+        searchResults.style.display = 'block';
+      } else {
+        searchResults.innerHTML = '<div class="search-result">No posts found</div>';
+        searchResults.style.display = 'block';
+      }
+    });
+
+    // Hide search results when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+        searchResults.style.display = 'none';
+      }
+    });
+  });
+</script>
+
+<style>
+  .blog-page {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-color);
+    }
+    
+    p {
+      font-size: 1.1rem;
+      color: #666;
+    }
+  }
+
+  .search-box {
+    position: relative;
+    margin-bottom: 2rem;
+    
+    #search-input {
+      width: 100%;
+      padding: 1rem;
+      border: 2px solid var(--border-color);
+      border-radius: 8px;
+      font-size: 1rem;
+      background-color: var(--card-bg);
+      color: var(--text-color);
+      
+      &:focus {
+        outline: none;
+        border-color: var(--brand-color);
+      }
+    }
+    
+    .search-results {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      z-index: 10;
+      display: none;
+      
+      .search-result {
+        padding: 1rem;
+        border-bottom: 1px solid var(--border-color);
+        
+        &:last-child {
+          border-bottom: none;
+        }
+        
+        a {
+          color: var(--link-color);
+          text-decoration: none;
+          font-weight: 600;
+          
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+        
+        p {
+          margin: 0.5rem 0 0 0;
+          font-size: 0.9rem;
+          color: #666;
+        }
+      }
+    }
+  }
+
+  .post-preview {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    .post-preview-header {
+      margin-bottom: 1rem;
+      
+      h2 {
+        margin: 0 0 0.5rem 0;
+        
+        a {
+          color: var(--text-color);
+          text-decoration: none;
+          
+          &:hover {
+            color: var(--link-color);
+          }
+        }
+      }
+      
+      .post-meta {
+        color: #666;
+        font-size: 0.9rem;
+        
+        .reading-time {
+          margin-left: 1rem;
+          padding-left: 1rem;
+          border-left: 1px solid var(--border-color);
+        }
+      }
+    }
+    
+    .post-excerpt {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+      color: var(--text-color);
+    }
+    
+    .post-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      
+      .tag {
+        background-color: var(--brand-color);
+        color: white;
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+      
+      .tag-more {
+        color: #666;
+        font-size: 0.8rem;
+        font-style: italic;
+      }
+    }
+    
+    .post-preview-footer {
+      .read-more {
+        color: var(--link-color);
+        text-decoration: none;
+        font-weight: 600;
+        
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+    
+    .pagination-link {
+      color: var(--link-color);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border: 2px solid var(--link-color);
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        background-color: var(--link-color);
+        color: white;
+      }
+    }
+    
+    .pagination-info {
+      color: #666;
+      font-weight: 500;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .post-preview {
+      padding: 1.5rem;
+    }
+    
+    .pagination {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+</style>

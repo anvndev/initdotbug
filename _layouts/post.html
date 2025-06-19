@@ -1,0 +1,70 @@
+---
+layout: default
+---
+
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+    <div class="post-meta">
+      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {{ page.date | date: site.date_format }}
+      </time>
+      
+      {% if page.reading_time %}
+        <span class="reading-time">{{ page.reading_time }} min read</span>
+      {% endif %}
+      
+      {% if page.author %}
+        <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <span class="p-author h-card" itemprop="name">{{ page.author }}</span>
+        </span>
+      {% endif %}
+    </div>
+    
+    {% if page.tags.size > 0 %}
+      <div class="post-tags">
+        {% for tag in page.tags %}
+          <span class="tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  <footer class="post-footer">
+    {% if page.categories.size > 0 %}
+      <div class="post-categories">
+        <strong>Categories:</strong>
+        {% for category in page.categories %}
+          <a href="{{ '/category/' | append: category | slugify | relative_url }}" class="category-link">{{ category }}</a>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <div class="social-share">
+      <strong>Share:</strong>
+      <a href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}&url={{ site.url }}{{ page.url }}" 
+         class="share-link twitter" target="_blank" rel="noopener">Twitter</a>
+      <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ site.url }}{{ page.url }}" 
+         class="share-link linkedin" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </footer>
+
+  {% if site.posts.size > 1 %}
+    <section class="related-posts">
+      <h3>Related Posts</h3>
+      <ul class="post-list">
+        {% assign related_posts = site.posts | where_exp: "post", "post.url != page.url" | limit: 3 %}
+        {% for post in related_posts %}
+          <li>
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            <span class="post-meta">{{ post.date | date: site.date_format }}</span>
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% endif %}
+</article>

@@ -1,0 +1,54 @@
+---
+layout: default
+---
+
+<article class="project">
+  <header class="project-header">
+    <h1 class="project-title">{{ page.title | escape }}</h1>
+    
+    {% if page.demo_url or page.github_url %}
+      <div class="project-links">
+        {% if page.demo_url %}
+          <a href="{{ page.demo_url }}" class="btn btn-primary" target="_blank" rel="noopener">View Demo</a>
+        {% endif %}
+        {% if page.github_url %}
+          <a href="{{ page.github_url }}" class="btn btn-secondary" target="_blank" rel="noopener">View Code</a>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="project-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">
+        {{ page.date | date: site.date_format }}
+      </time>
+      
+      {% if page.status %}
+        <span class="status status-{{ page.status | downcase }}">{{ page.status }}</span>
+      {% endif %}
+    </div>
+
+    {% if page.tech_stack %}
+      <div class="tech-stack">
+        <strong>Tech Stack:</strong>
+        {% for tech in page.tech_stack %}
+          <span class="tech">{{ tech }}</span>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </header>
+
+  <div class="project-content">
+    {{ content }}
+  </div>
+
+  {% if page.screenshots %}
+    <section class="project-screenshots">
+      <h3>Screenshots</h3>
+      <div class="screenshot-grid">
+        {% for screenshot in page.screenshots %}
+          <img src="{{ screenshot | relative_url }}" alt="Screenshot" loading="lazy">
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+</article>

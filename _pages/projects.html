@@ -1,0 +1,379 @@
+---
+layout: default
+title: Projects
+permalink: /projects/
+---
+
+<div class="projects-page">
+  <header class="page-header">
+    <h1>Projects</h1>
+    <p>A showcase of my development work and experiments</p>
+  </header>
+
+  <div class="projects-filter">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="web">Web</button>
+    <button class="filter-btn" data-filter="mobile">Mobile</button>
+    <button class="filter-btn" data-filter="cli">CLI</button>
+    <button class="filter-btn" data-filter="library">Library</button>
+  </div>
+
+  <div class="projects-grid">
+    {% for project in site.projects %}
+      <article class="project-card" data-category="{{ project.category | default: 'web' }}">
+        {% if project.image %}
+          <div class="project-image">
+            <img src="{{ project.image | relative_url }}" alt="{{ project.title }}" loading="lazy">
+          </div>
+        {% endif %}
+        
+        <div class="project-content">
+          <header class="project-header">
+            <h3><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
+            {% if project.status %}
+              <span class="status status-{{ project.status | downcase }}">{{ project.status }}</span>
+            {% endif %}
+          </header>
+
+          <p class="project-description">{{ project.description | default: project.excerpt | strip_html }}</p>
+
+          {% if project.tech_stack %}
+            <div class="tech-stack">
+              {% for tech in project.tech_stack limit:4 %}
+                <span class="tech">{{ tech }}</span>
+              {% endfor %}
+              {% if project.tech_stack.size > 4 %}
+                <span class="tech-more">+{{ project.tech_stack.size | minus: 4 }}</span>
+              {% endif %}
+            </div>
+          {% endif %}
+
+          <footer class="project-footer">
+            <div class="project-links">
+              {% if project.demo_url %}
+                <a href="{{ project.demo_url }}" class="project-link demo" target="_blank" rel="noopener">
+                  <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+                    <path d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+                  </svg>
+                  Demo
+                </a>
+              {% endif %}
+              {% if project.github_url %}
+                <a href="{{ project.github_url }}" class="project-link github" target="_blank" rel="noopener">
+                  <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                  </svg>
+                  Code
+                </a>
+              {% endif %}
+              <a href="{{ project.url | relative_url }}" class="project-link details">
+                Details →
+              </a>
+            </div>
+
+            <time class="project-date" datetime="{{ project.date | date_to_xmlschema }}">
+              {{ project.date | date: '%Y' }}
+            </time>
+          </footer>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+
+  {% if site.projects.size == 0 %}
+    <div class="empty-state">
+      <h3>No projects yet</h3>
+      <p>Projects will be added soon. Check back later!</p>
+    </div>
+  {% endif %}
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const filter = this.getAttribute('data-filter');
+        
+        // Update active button
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        this.classList.add('active');
+        
+        // Filter projects
+        projectCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (filter === 'all' || category === filter) {
+            card.style.display = 'block';
+            setTimeout(() => {
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0)';
+            }, 10);
+          } else {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+              card.style.display = 'none';
+            }, 300);
+          }
+        });
+      });
+    });
+  });
+</script>
+
+<style>
+  .projects-page {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-color);
+    }
+    
+    p {
+      font-size: 1.1rem;
+      color: #666;
+    }
+  }
+
+  .projects-filter {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    
+    .filter-btn {
+      background: transparent;
+      border: 2px solid var(--border-color);
+      color: var(--text-color);
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      
+      &:hover, &.active {
+        border-color: var(--brand-color);
+        background-color: var(--brand-color);
+        color: white;
+      }
+    }
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+
+  .project-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    }
+    
+    .project-image {
+      height: 200px;
+      overflow: hidden;
+      
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+      
+      &:hover img {
+        transform: scale(1.05);
+      }
+    }
+    
+    .project-content {
+      padding: 1.5rem;
+    }
+    
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+      
+      h3 {
+        margin: 0;
+        font-size: 1.25rem;
+        
+        a {
+          color: var(--text-color);
+          text-decoration: none;
+          
+          &:hover {
+            color: var(--link-color);
+          }
+        }
+      }
+      
+      .status {
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        white-space: nowrap;
+        
+        &.status-completed {
+          background-color: #22c55e;
+          color: white;
+        }
+        
+        &.status-in-progress {
+          background-color: #f59e0b;
+          color: white;
+        }
+        
+        &.status-planned {
+          background-color: #6b7280;
+          color: white;
+        }
+      }
+    }
+    
+    .project-description {
+      color: var(--text-color);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+    
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      
+      .tech {
+        background-color: var(--border-color);
+        color: var(--text-color);
+        padding: 0.25rem 0.75rem;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+      
+      .tech-more {
+        color: #666;
+        font-size: 0.8rem;
+        font-style: italic;
+        align-self: center;
+      }
+    }
+    
+    .project-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      
+      .project-links {
+        display: flex;
+        gap: 0.75rem;
+        
+        .project-link {
+          display: flex;
+          align-items: center;
+          gap: 0.25rem;
+          padding: 0.5rem 0.75rem;
+          border-radius: 6px;
+          text-decoration: none;
+          font-size: 0.85rem;
+          font-weight: 500;
+          transition: all 0.3s ease;
+          
+          &.demo {
+            background-color: var(--brand-color);
+            color: white;
+            
+            &:hover {
+              background-color: darken(var(--brand-color), 10%);
+            }
+          }
+          
+          &.github {
+            background-color: #24292e;
+            color: white;
+            
+            &:hover {
+              background-color: #1a1d20;
+            }
+          }
+          
+          &.details {
+            color: var(--link-color);
+            
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+          
+          svg {
+            flex-shrink: 0;
+          }
+        }
+      }
+      
+      .project-date {
+        color: #666;
+        font-size: 0.85rem;
+        font-weight: 500;
+      }
+    }
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #666;
+    
+    h3 {
+      color: var(--text-color);
+      margin-bottom: 1rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .project-card .project-footer {
+      flex-direction: column;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    
+    .projects-filter {
+      justify-content: flex-start;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+      
+      .filter-btn {
+        white-space: nowrap;
+      }
+    }
+  }
+</style>

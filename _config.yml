@@ -1,0 +1,75 @@
+# Site settings
+title: initdotbug
+description: >-
+  A developer's journey through code, learning, and experiments.
+  Sharing insights, projects, and quick references for the tech community.
+baseurl: ""
+url: "https://anvndev.github.io"
+twitter_username: anvndev
+github_username: anvndev
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-paginate
+
+# Pagination
+paginate: 10
+paginate_path: "/blog/page:num/"
+
+# Collections
+collections:
+  notes:
+    output: true
+    permalink: /:collection/:name/
+  projects:
+    output: true
+    permalink: /:collection/:name/
+  categories:
+    output: true
+    permalink: /category/:name/
+
+# Default front matter
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      comments: true
+  - scope:
+      path: ""
+      type: "notes"
+    values:
+      layout: "note"
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+# Include
+include:
+  - _pages
+
+# Site settings
+timezone: UTC
+date_format: "%B %d, %Y"
+
+# Theme colors
+brand_color: "#006400"

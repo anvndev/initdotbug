@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Git Workflow Cheatsheet | initdotbug</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Git Workflow Cheatsheet" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Git Workflow Cheatsheet" />
+<meta property="og:description" content="Git Workflow Cheatsheet" />
+<link rel="canonical" href="http://localhost:4000/notes/2024-01-10-git-workflow-cheatsheet/" />
+<meta property="og:url" content="http://localhost:4000/notes/2024-01-10-git-workflow-cheatsheet/" />
+<meta property="og:site_name" content="initdotbug" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-01-10T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Git Workflow Cheatsheet" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-01-10T00:00:00+00:00","datePublished":"2024-01-10T00:00:00+00:00","description":"Git Workflow Cheatsheet","headline":"Git Workflow Cheatsheet","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/notes/2024-01-10-git-workflow-cheatsheet/"},"url":"http://localhost:4000/notes/2024-01-10-git-workflow-cheatsheet/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css">
+  <link rel="icon" type="./img/" href="/assets/img/initdotbug.png"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="initdotbug" /><script>
+    // Theme toggle functionality
+    const getTheme = () => localStorage.getItem('theme') || 'light';
+    const setTheme = (theme) => {
+      localStorage.setItem('theme', theme);
+      document.documentElement.setAttribute('data-theme', theme);
+    };
+    
+    // Set theme before page loads
+    setTheme(getTheme());
+  </script>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="wrapper">
+      <a class="site-title" href="/">
+        <span class="logo">🪲</span>
+        initdotbug
+      </a>
+
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="m18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484s0.665-1.484,1.484-1.484 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          <a class="page-link" href="/">Home</a>
+          <a class="page-link" href="/projects/">Projects</a>
+          <a class="page-link" href="/blog/">Blog</a>
+          <a class="page-link" href="/notes/">Notes</a>
+          <a class="page-link" href="/categories/">Categories</a>
+          <a class="page-link" href="/about/">About</a>
+          
+          <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+            <span class="theme-icon">🌙</span>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-content">
+    <div class="wrapper">
+      <article class="note">
+  <header class="note-header">
+    <h1 class="note-title">Git Workflow Cheatsheet</h1>
+    <div class="note-meta">
+      <time datetime="2024-01-10T00:00:00+00:00">
+        January 10, 2024
+      </time>
+      
+      
+        <div class="note-tags">
+          
+            <span class="tag">git</span>
+          
+            <span class="tag">cheatsheet</span>
+          
+            <span class="tag">workflow</span>
+          
+        </div>
+      
+    </div>
+  </header>
+
+  <div class="note-content">
+    <h1 id="git-workflow-cheatsheet">Git Workflow Cheatsheet</h1>
+
+<p>Quick reference for common Git operations and workflows.</p>
+
+<h2 id="basic-commands">Basic Commands</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Initialize repository</span>
+git init
+
+<span class="c"># Clone repository</span>
+git clone &lt;url&gt;
+
+<span class="c"># Check status</span>
+git status
+
+<span class="c"># Add files</span>
+git add &lt;file&gt;
+git add <span class="nb">.</span>  <span class="c"># Add all files</span>
+
+<span class="c"># Commit changes</span>
+git commit <span class="nt">-m</span> <span class="s2">"Commit message"</span>
+git commit <span class="nt">-am</span> <span class="s2">"Add and commit in one step"</span>
+</code></pre></div></div>
+
+<h2 id="branch-management">Branch Management</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># List branches</span>
+git branch
+git branch <span class="nt">-r</span>  <span class="c"># Remote branches</span>
+git branch <span class="nt">-a</span>  <span class="c"># All branches</span>
+
+<span class="c"># Create branch</span>
+git branch &lt;branch-name&gt;
+git checkout <span class="nt">-b</span> &lt;branch-name&gt;  <span class="c"># Create and switch</span>
+
+<span class="c"># Switch branches</span>
+git checkout &lt;branch-name&gt;
+git switch &lt;branch-name&gt;  <span class="c"># Modern alternative</span>
+
+<span class="c"># Delete branch</span>
+git branch <span class="nt">-d</span> &lt;branch-name&gt;
+git branch <span class="nt">-D</span> &lt;branch-name&gt;  <span class="c"># Force delete</span>
+</code></pre></div></div>
+
+<h2 id="remote-operations">Remote Operations</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Add remote</span>
+git remote add origin &lt;url&gt;
+
+<span class="c"># Push changes</span>
+git push origin &lt;branch-name&gt;
+git push <span class="nt">-u</span> origin &lt;branch-name&gt;  <span class="c"># Set upstream</span>
+
+<span class="c"># Pull changes</span>
+git pull origin &lt;branch-name&gt;
+git pull <span class="nt">--rebase</span>  <span class="c"># Rebase instead of merge</span>
+
+<span class="c"># Fetch changes</span>
+git fetch origin
+</code></pre></div></div>
+
+<h2 id="merge-vs-rebase">Merge vs Rebase</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Merge feature branch to main</span>
+git checkout main
+git merge feature-branch
+
+<span class="c"># Rebase feature branch onto main</span>
+git checkout feature-branch
+git rebase main
+
+<span class="c"># Interactive rebase (clean up commits)</span>
+git rebase <span class="nt">-i</span> HEAD~3
+</code></pre></div></div>
+
+<h2 id="useful-aliases">Useful Aliases</h2>
+
+<p>Add to your <code class="language-plaintext highlighter-rouge">~/.gitconfig</code>:</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[alias]</span>
+  <span class="py">st</span> <span class="p">=</span> <span class="s">status</span>
+  <span class="py">co</span> <span class="p">=</span> <span class="s">checkout</span>
+  <span class="py">br</span> <span class="p">=</span> <span class="s">branch</span>
+  <span class="py">ci</span> <span class="p">=</span> <span class="s">commit</span>
+  <span class="py">ca</span> <span class="p">=</span> <span class="s">commit -am</span>
+  <span class="py">unstage</span> <span class="p">=</span> <span class="s">reset HEAD --</span>
+  <span class="py">last</span> <span class="p">=</span> <span class="s">log -1 HEAD</span>
+  <span class="py">visual</span> <span class="p">=</span> <span class="s">!gitk</span>
+  <span class="py">lg</span> <span class="p">=</span> <span class="s">log --oneline --graph --decorate</span>
+</code></pre></div></div>
+
+<h2 id="common-scenarios">Common Scenarios</h2>
+
+<h3 id="undo-last-commit-keep-changes">Undo Last Commit (Keep Changes)</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git reset <span class="nt">--soft</span> HEAD~1
+</code></pre></div></div>
+
+<h3 id="undo-last-commit-discard-changes">Undo Last Commit (Discard Changes)</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git reset <span class="nt">--hard</span> HEAD~1
+</code></pre></div></div>
+
+<h3 id="stash-work-in-progress">Stash Work in Progress</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git stash
+git stash pop
+git stash list
+git stash drop
+</code></pre></div></div>
+
+<h3 id="cherry-pick-commit">Cherry Pick Commit</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git cherry-pick &lt;commit-hash&gt;
+</code></pre></div></div>
+
+<h2 id="best-practices">Best Practices</h2>
+
+<ol>
+  <li><strong>Write descriptive commit messages</strong></li>
+  <li><strong>Use feature branches for new work</strong></li>
+  <li><strong>Pull before pushing</strong></li>
+  <li><strong>Keep commits atomic and focused</strong></li>
+  <li><strong>Use <code class="language-plaintext highlighter-rouge">.gitignore</code> appropriately</strong></li>
+  <li><strong>Regular backups with remotes</strong></li>
+</ol>
+
+  </div>
+
+  
+    <footer class="note-footer">
+      <h4>References</h4>
+      <ul>
+        
+          <li><a href="https://git-scm.com/docs" target="_blank" rel="noopener">Git Documentation</a></li>
+        
+          <li><a href="https://www.atlassian.com/git/tutorials" target="_blank" rel="noopener">Atlassian Git Tutorials</a></li>
+        
+      </ul>
+    </footer>
+  
+</article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrapper">
+      <div class="footer-content">
+        <div class="footer-col">
+          <p>A developer&#39;s journey through code, learning, and experiments. Sharing insights, projects, and quick references for the tech community.</p>
+        </div>
+        <div class="footer-col">
+          <p>
+            <a href="https://anvndev.github.io/anvndev">
+              <svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg"></use></svg>
+              <span class="username">anvndev</span>
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const currentTheme = getTheme();
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      setTheme(newTheme);
+      updateThemeIcon(newTheme);
+    }
+
+    function updateThemeIcon(theme) {
+      const icon = document.querySelector('.theme-icon');
+      icon.textContent = theme === 'light' ? '🌙' : '☀️';
+    }
+
+    // Initialize theme icon
+    document.addEventListener('DOMContentLoaded', () => {
+      updateThemeIcon(getTheme());
+    });
+  </script>
+</body>
+</html>

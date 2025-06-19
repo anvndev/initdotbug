@@ -1,0 +1,190 @@
+---
+layout: default
+title: Notes
+permalink: /notes/
+---
+
+<div class="notes-page">
+  <header class="page-header">
+    <h1>Quick Notes</h1>
+    <p>Short references, snippets, and quick insights</p>
+  </header>
+
+  <div class="notes-grid">
+    {% for note in site.notes %}
+      <article class="note-card">
+        <header class="note-header">
+          <h3><a href="{{ note.url | relative_url }}">{{ note.title }}</a></h3>
+          <time class="note-date" datetime="{{ note.date | date_to_xmlschema }}">
+            {{ note.date | date: '%b %d, %Y' }}
+          </time>
+        </header>
+
+        <div class="note-excerpt">
+          {{ note.excerpt | strip_html | truncate: 150 }}
+        </div>
+
+        {% if note.tags.size > 0 %}
+          <div class="note-tags">
+            {% for tag in note.tags limit:3 %}
+              <span class="tag">{{ tag }}</span>
+            {% endfor %}
+            {% if note.tags.size > 3 %}
+              <span class="tag-more">+{{ note.tags.size | minus: 3 }}</span>
+            {% endif %}
+          </div>
+        {% endif %}
+
+        <footer class="note-footer">
+          <a href="{{ note.url | relative_url }}" class="read-more">Read note →</a>
+        </footer>
+      </article>
+    {% endfor %}
+  </div>
+
+  {% if site.notes.size == 0 %}
+    <div class="empty-state">
+      <h3>No notes yet</h3>
+      <p>Quick notes and references will be added soon!</p>
+    </div>
+  {% endif %}
+</div>
+
+<style>
+  .notes-page {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-color);
+    }
+    
+    p {
+      font-size: 1.1rem;
+      color: #666;
+    }
+  }
+
+  .notes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .note-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    height: fit-content;
+    
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+    
+    .note-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+      gap: 1rem;
+      
+      h3 {
+        margin: 0;
+        font-size: 1.1rem;
+        line-height: 1.3;
+        
+        a {
+          color: var(--text-color);
+          text-decoration: none;
+          
+          &:hover {
+            color: var(--link-color);
+          }
+        }
+      }
+      
+      .note-date {
+        color: #666;
+        font-size: 0.8rem;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+    }
+    
+    .note-excerpt {
+      color: var(--text-color);
+      line-height: 1.5;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+    
+    .note-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+      
+      .tag {
+        background-color: var(--brand-color);
+        color: white;
+        padding: 0.2rem 0.6rem;
+        border-radius: 15px;
+        font-size: 0.7rem;
+        font-weight: 500;
+      }
+      
+      .tag-more {
+        color: #666;
+        font-size: 0.7rem;
+        font-style: italic;
+        align-self: center;
+      }
+    }
+    
+    .note-footer {
+      .read-more {
+        color: var(--link-color);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #666;
+    
+    h3 {
+      color: var(--text-color);
+      margin-bottom: 1rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .notes-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .note-card .note-header {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+</style>

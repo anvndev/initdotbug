@@ -1,0 +1,282 @@
+---
+layout: default
+title: Categories
+permalink: /categories/
+---
+
+<div class="categories-page">
+  <header class="page-header">
+    <h1>Categories</h1>
+    <p>Explore content organized by topics and themes</p>
+  </header>
+
+  <div class="categories-grid">
+    <div class="category-section">
+      <div class="category-header">
+        <h2>💻 Code & Projects</h2>
+        <p>Real-world implementations and development projects</p>
+      </div>
+      <div class="subcategories">
+        <a href="#" class="subcategory">Golang</a>
+        <a href="#" class="subcategory">Swift</a>
+        <a href="#" class="subcategory">Flutter</a>
+        <a href="#" class="subcategory">iOS</a>
+        <a href="#" class="subcategory">Web Dev</a>
+        <a href="#" class="subcategory">Open Source</a>
+      </div>
+    </div>
+
+    <div class="category-section">
+      <div class="category-header">
+        <h2>📚 Learning Notes</h2>
+        <p>Structured notes and insights on technology</p>
+      </div>
+      <div class="subcategories">
+        <a href="#" class="subcategory">AI/ML</a>
+        <a href="#" class="subcategory">Backend</a>
+        <a href="#" class="subcategory">DevOps</a>
+        <a href="#" class="subcategory">Security</a>
+        <a href="#" class="subcategory">Database</a>
+      </div>
+    </div>
+
+    <div class="category-section">
+      <div class="category-header">
+        <h2>🔧 Dev Setup & Tools</h2>
+        <p>Productivity tools and development environment</p>
+      </div>
+      <div class="subcategories">
+        <a href="#" class="subcategory">Terminal</a>
+        <a href="#" class="subcategory">Neovim</a>
+        <a href="#" class="subcategory">Git</a>
+        <a href="#" class="subcategory">CLI Tools</a>
+        <a href="#" class="subcategory">Productivity</a>
+      </div>
+    </div>
+
+    <div class="category-section">
+      <div class="category-header">
+        <h2>🧪 Experiments & Labs</h2>
+        <p>Exploration and proof-of-concepts</p>
+      </div>
+      <div class="subcategories">
+        <a href="#" class="subcategory">AI</a>
+        <a href="#" class="subcategory">IoT</a>
+        <a href="#" class="subcategory">Performance</a>
+        <a href="#" class="subcategory">CI/CD</a>
+        <a href="#" class="subcategory">Testing</a>
+        <a href="#" class="subcategory">API</a>
+      </div>
+    </div>
+
+    <div class="category-section">
+      <div class="category-header">
+        <h2>🧠 Insight & Dev Life</h2>
+        <p>Reflections on the developer journey</p>
+      </div>
+      <div class="subcategories">
+        <a href="#" class="subcategory">Thinking</a>
+        <a href="#" class="subcategory">Skills</a>
+        <a href="#" class="subcategory">Interview</a>
+        <a href="#" class="subcategory">Learning Fast</a>
+        <a href="#" class="subcategory">Coding Diary</a>
+      </div>
+    </div>
+
+    <div class="category-section">
+      <div class="category-header">
+        <h2>📝 Cheatsheets & Tips</h2>
+        <p>Quick references for daily development</p>
+      </div>
+      <div class="subcategories">
+        <a href="#" class="subcategory">Git</a>
+        <a href="#" class="subcategory">Regex</a>
+        <a href="#" class="subcategory">Markdown</a>
+        <a href="#" class="subcategory">Debug</a>
+        <a href="#" class="subcategory">SSH</a>
+        <a href="#" class="subcategory">Tmux</a>
+        <a href="#" class="subcategory">Vimium</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="all-posts-by-category">
+    <h2>All Posts by Category</h2>
+    
+    {% assign categories = site.posts | map: 'categories' | join: ',' | split: ',' | uniq | sort %}
+    
+    {% for category in categories %}
+      {% assign posts = site.posts | where: 'categories', category %}
+      {% if posts.size > 0 %}
+        <div class="category-posts">
+          <h3 id="{{ category | slugify }}">{{ category }}</h3>
+          <ul class="posts-list">
+            {% for post in posts %}
+              <li>
+                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%b %d, %Y' }}</time>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </section>
+</div>
+
+<style>
+  .categories-page {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-color);
+    }
+    
+    p {
+      font-size: 1.1rem;
+      color: #666;
+    }
+  }
+
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .category-section {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-3px);
+    }
+    
+    .category-header {
+      margin-bottom: 1.5rem;
+      
+      h2 {
+        font-size: 1.5rem;
+        margin: 0 0 0.5rem 0;
+        color: var(--text-color);
+      }
+      
+      p {
+        margin: 0;
+        color: #666;
+        font-size: 0.95rem;
+      }
+    }
+    
+    .subcategories {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      
+      .subcategory {
+        background-color: var(--border-color);
+        color: var(--text-color);
+        padding: 0.5rem 1rem;
+        border-radius: 6px;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        
+        &:hover {
+          background-color: var(--brand-color);
+          color: white;
+          transform: translateY(-1px);
+        }
+      }
+    }
+  }
+
+  .all-posts-by-category {
+    border-top: 2px solid var(--border-color);
+    padding-top: 3rem;
+    
+    > h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: var(--text-color);
+    }
+    
+    .category-posts {
+      margin-bottom: 2.5rem;
+      
+      h3 {
+        font-size: 1.5rem;
+        color: var(--link-color);
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid var(--border-color);
+      }
+      
+      .posts-list {
+        list-style: none;
+        padding: 0;
+        
+        li {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0.75rem 0;
+          border-bottom: 1px solid var(--border-color);
+          
+          &:last-child {
+            border-bottom: none;
+          }
+          
+          a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            flex: 1;
+            
+            &:hover {
+              color: var(--link-color);
+            }
+          }
+          
+          time {
+            color: #666;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            margin-left: 1rem;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .categories-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .all-posts-by-category .posts-list li {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.25rem;
+      
+      time {
+        margin-left: 0;
+      }
+    }
+  }
+</style>

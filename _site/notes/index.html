@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Notes | initdotbug</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Notes" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A developer’s journey through code, learning, and experiments. Sharing insights, projects, and quick references for the tech community." />
+<meta property="og:description" content="A developer’s journey through code, learning, and experiments. Sharing insights, projects, and quick references for the tech community." />
+<link rel="canonical" href="http://localhost:4000/notes/" />
+<meta property="og:url" content="http://localhost:4000/notes/" />
+<meta property="og:site_name" content="initdotbug" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Notes" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"A developer’s journey through code, learning, and experiments. Sharing insights, projects, and quick references for the tech community.","headline":"Notes","url":"http://localhost:4000/notes/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css">
+  <link rel="icon" type="./img/" href="/assets/img/initdotbug.png"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="initdotbug" /><script>
+    // Theme toggle functionality
+    const getTheme = () => localStorage.getItem('theme') || 'light';
+    const setTheme = (theme) => {
+      localStorage.setItem('theme', theme);
+      document.documentElement.setAttribute('data-theme', theme);
+    };
+    
+    // Set theme before page loads
+    setTheme(getTheme());
+  </script>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="wrapper">
+      <a class="site-title" href="/">
+        <span class="logo">🪲</span>
+        initdotbug
+      </a>
+
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="m18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484s0.665-1.484,1.484-1.484 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          <a class="page-link" href="/">Home</a>
+          <a class="page-link" href="/projects/">Projects</a>
+          <a class="page-link" href="/blog/">Blog</a>
+          <a class="page-link" href="/notes/">Notes</a>
+          <a class="page-link" href="/categories/">Categories</a>
+          <a class="page-link" href="/about/">About</a>
+          
+          <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+            <span class="theme-icon">🌙</span>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-content">
+    <div class="wrapper">
+      <div class="notes-page">
+  <header class="page-header">
+    <h1>Quick Notes</h1>
+    <p>Short references, snippets, and quick insights</p>
+  </header>
+
+  <div class="notes-grid">
+    
+      <article class="note-card">
+        <header class="note-header">
+          <h3><a href="/notes/2024-01-10-git-workflow-cheatsheet/">Git Workflow Cheatsheet</a></h3>
+          <time class="note-date" datetime="2024-01-10T00:00:00+00:00">
+            Jan 10, 2024
+          </time>
+        </header>
+
+        <div class="note-excerpt">
+          Git Workflow Cheatsheet
+
+        </div>
+
+        
+          <div class="note-tags">
+            
+              <span class="tag">git</span>
+            
+              <span class="tag">cheatsheet</span>
+            
+              <span class="tag">workflow</span>
+            
+            
+          </div>
+        
+
+        <footer class="note-footer">
+          <a href="/notes/2024-01-10-git-workflow-cheatsheet/" class="read-more">Read note →</a>
+        </footer>
+      </article>
+    
+  </div>
+
+  
+</div>
+
+<style>
+  .notes-page {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-color);
+    }
+    
+    p {
+      font-size: 1.1rem;
+      color: #666;
+    }
+  }
+
+  .notes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .note-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    height: fit-content;
+    
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+    
+    .note-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+      gap: 1rem;
+      
+      h3 {
+        margin: 0;
+        font-size: 1.1rem;
+        line-height: 1.3;
+        
+        a {
+          color: var(--text-color);
+          text-decoration: none;
+          
+          &:hover {
+            color: var(--link-color);
+          }
+        }
+      }
+      
+      .note-date {
+        color: #666;
+        font-size: 0.8rem;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+    }
+    
+    .note-excerpt {
+      color: var(--text-color);
+      line-height: 1.5;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+    
+    .note-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+      
+      .tag {
+        background-color: var(--brand-color);
+        color: white;
+        padding: 0.2rem 0.6rem;
+        border-radius: 15px;
+        font-size: 0.7rem;
+        font-weight: 500;
+      }
+      
+      .tag-more {
+        color: #666;
+        font-size: 0.7rem;
+        font-style: italic;
+        align-self: center;
+      }
+    }
+    
+    .note-footer {
+      .read-more {
+        color: var(--link-color);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #666;
+    
+    h3 {
+      color: var(--text-color);
+      margin-bottom: 1rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .notes-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .note-card .note-header {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+</style>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrapper">
+      <div class="footer-content">
+        <div class="footer-col">
+          <p>A developer&#39;s journey through code, learning, and experiments. Sharing insights, projects, and quick references for the tech community.</p>
+        </div>
+        <div class="footer-col">
+          <p>
+            <a href="https://anvndev.github.io/anvndev">
+              <svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg"></use></svg>
+              <span class="username">anvndev</span>
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const currentTheme = getTheme();
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      setTheme(newTheme);
+      updateThemeIcon(newTheme);
+    }
+
+    function updateThemeIcon(theme) {
+      const icon = document.querySelector('.theme-icon');
+      icon.textContent = theme === 'light' ? '🌙' : '☀️';
+    }
+
+    // Initialize theme icon
+    document.addEventListener('DOMContentLoaded', () => {
+      updateThemeIcon(getTheme());
+    });
+  </script>
+</body>
+</html>

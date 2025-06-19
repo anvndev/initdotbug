@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-06-19T12:30:03+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">initdotbug</title><subtitle>A developer&apos;s journey through code, learning, and experiments. Sharing insights, projects, and quick references for the tech community.</subtitle><entry><title type="html">Welcome to initdotbug</title><link href="http://localhost:4000/dev%20life/2025/01/15/welcome-to-initdotbug.html" rel="alternate" type="text/html" title="Welcome to initdotbug" /><published>2025-01-15T00:00:00+00:00</published><updated>2025-01-15T00:00:00+00:00</updated><id>http://localhost:4000/dev%20life/2025/01/15/welcome-to-initdotbug</id><content type="html" xml:base="http://localhost:4000/dev%20life/2025/01/15/welcome-to-initdotbug.html"><![CDATA[<h1 id="welcome-to-initdotbug-">Welcome to initdotbug! 🐛</h1>
+
+<p>Hello and welcome to <strong>initdotbug</strong> - my personal corner of the internet where I document my journey as a developer, share insights, and explore the ever-evolving world of technology.</p>
+
+<h2 id="what-is-initdotbug">What is initdotbug?</h2>
+
+<p>The name “initdotbug” represents the beginning (<code class="language-plaintext highlighter-rouge">init</code>) of debugging (<code class="language-plaintext highlighter-rouge">.bug</code>) - a fundamental part of every developer’s life. It symbolizes the start of problem-solving, learning, and continuous improvement that defines our craft.</p>
+
+<h2 id="what-youll-find-here">What You’ll Find Here</h2>
+
+<p>This blog is organized into six main categories, each serving a specific purpose:</p>
+
+<h3 id="-code--projects">💻 Code &amp; Projects</h3>
+<p>Real-world implementations and development work across various technologies:</p>
+<ul>
+  <li><strong>Golang</strong> projects and backend services</li>
+  <li><strong>Swift</strong> and <strong>iOS</strong> development</li>
+  <li><strong>Flutter</strong> cross-platform applications</li>
+  <li><strong>Web Development</strong> with modern frameworks</li>
+  <li><strong>Open Source</strong> contributions and libraries</li>
+</ul>
+
+<h3 id="-learning-notes">📚 Learning Notes</h3>
+<p>Structured documentation of my learning journey:</p>
+<ul>
+  <li><strong>AI/ML</strong> experiments and implementations</li>
+  <li><strong>Backend</strong> architecture and design patterns</li>
+  <li><strong>DevOps</strong> practices and automation</li>
+  <li><strong>Security</strong> best practices and considerations</li>
+  <li><strong>Database</strong> design and optimization</li>
+</ul>
+
+<h3 id="-dev-setup--tools">🔧 Dev Setup &amp; Tools</h3>
+<p>Productivity-focused content for developer efficiency:</p>
+<ul>
+  <li><strong>Terminal</strong> customization and workflows</li>
+  <li><strong>Neovim</strong> configuration and plugins</li>
+  <li><strong>Git</strong> advanced techniques and workflows</li>
+  <li><strong>CLI Tools</strong> that boost productivity</li>
+  <li><strong>Development Environment</strong> optimization</li>
+</ul>
+
+<h3 id="-experiments--labs">🧪 Experiments &amp; Labs</h3>
+<p>Exploration of new technologies and proof-of-concepts:</p>
+<ul>
+  <li><strong>AI</strong> technology experiments</li>
+  <li><strong>IoT</strong> projects and integrations</li>
+  <li><strong>Performance</strong> optimization techniques</li>
+  <li><strong>CI/CD</strong> pipeline implementations</li>
+  <li><strong>API</strong> design and development</li>
+  <li><strong>Testing</strong> strategies and frameworks</li>
+</ul>
+
+<h3 id="-insight--dev-life">🧠 Insight &amp; Dev Life</h3>
+<p>Reflections on the developer journey and career growth:</p>
+<ul>
+  <li><strong>Problem-solving</strong> methodologies</li>
+  <li><strong>Skill Development</strong> strategies</li>
+  <li><strong>Interview</strong> preparation and experiences</li>
+  <li><strong>Learning Techniques</strong> for rapid skill acquisition</li>
+  <li><strong>Coding Diary</strong> documenting daily challenges and victories</li>
+</ul>
+
+<h3 id="-cheatsheets--tips">📝 Cheatsheets &amp; Tips</h3>
+<p>Quick references for daily development tasks:</p>
+<ul>
+  <li><strong>Git</strong> commands and workflows</li>
+  <li><strong>Regex</strong> patterns and examples</li>
+  <li><strong>Markdown</strong> formatting guides</li>
+  <li><strong>Debugging</strong> techniques and tools</li>
+  <li><strong>SSH</strong> configuration and usage</li>
+  <li><strong>Tmux</strong> session management</li>
+  <li><strong>Vimium</strong> browser navigation</li>
+</ul>
+
+<h2 id="my-approach">My Approach</h2>
+
+<p>I believe in:</p>
+<ul>
+  <li><strong>Learning in public</strong> - sharing knowledge helps everyone grow</li>
+  <li><strong>Practical applications</strong> - real-world solutions over theoretical concepts</li>
+  <li><strong>Quality over quantity</strong> - well-crafted content that provides value</li>
+  <li><strong>Continuous improvement</strong> - always striving to be better</li>
+  <li><strong>Community contribution</strong> - giving back to the developer ecosystem</li>
+</ul>
+
+<h2 id="whats-coming">What’s Coming</h2>
+
+<p>In the coming weeks and months, you can expect:</p>
+<ul>
+  <li>Deep dives into Golang backend development</li>
+  <li>iOS app development tutorials and insights</li>
+  <li>Flutter cross-platform development guides</li>
+  <li>DevOps automation and best practices</li>
+  <li>AI/ML experimentation and implementation</li>
+  <li>Developer productivity tips and tools</li>
+  <li>Career insights and learning strategies</li>
+</ul>
+
+<h2 id="connect-with-me">Connect With Me</h2>
+
+<p>I’d love to connect and hear from you:</p>
+<ul>
+  <li><strong>GitHub</strong>:  <a href="https://github.com/anvndev">anvndev</a></li>
+  <li><strong>Contact</strong>: <a href="https://anvndev.github.io/">anvndev</a></li>
+</ul>
+
+<p>Whether you’re a seasoned developer or just starting your journey, I hope you’ll find something valuable here. Feel free to reach out with questions, suggestions, or just to say hello!</p>
+
+<h2 id="lets-build-together">Let’s Build Together</h2>
+
+<p>This blog is more than just a personal journal - it’s a resource for the developer community. I encourage you to:</p>
+<ul>
+  <li>Share your thoughts in the comments</li>
+  <li>Suggest topics you’d like to see covered</li>
+  <li>Contribute corrections or improvements</li>
+  <li>Share posts that you find helpful</li>
+</ul>
+
+<p>Thank you for joining me on this journey. Let’s learn, build, and grow together!</p>
+
+<hr />
+
+<p><em>Happy coding, and remember: every bug is just an opportunity to learn something new!</em> 🚀</p>]]></content><author><name></name></author><category term="Dev Life" /><category term="introduction" /><category term="blog" /><category term="developer-journey" /><summary type="html"><![CDATA[Introducing initdotbug - a developer's journey through code, learning, and experiments. Discover what this blog is about and what you can expect.]]></summary></entry></feed>

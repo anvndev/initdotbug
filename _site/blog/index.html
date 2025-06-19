@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Blog | initdotbug</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Blog" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A developer’s journey through code, learning, and experiments. Sharing insights, projects, and quick references for the tech community." />
+<meta property="og:description" content="A developer’s journey through code, learning, and experiments. Sharing insights, projects, and quick references for the tech community." />
+<link rel="canonical" href="http://localhost:4000/blog/" />
+<meta property="og:url" content="http://localhost:4000/blog/" />
+<meta property="og:site_name" content="initdotbug" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Blog" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"A developer’s journey through code, learning, and experiments. Sharing insights, projects, and quick references for the tech community.","headline":"Blog","url":"http://localhost:4000/blog/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css">
+  <link rel="icon" type="./img/" href="/assets/img/initdotbug.png"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="initdotbug" /><script>
+    // Theme toggle functionality
+    const getTheme = () => localStorage.getItem('theme') || 'light';
+    const setTheme = (theme) => {
+      localStorage.setItem('theme', theme);
+      document.documentElement.setAttribute('data-theme', theme);
+    };
+    
+    // Set theme before page loads
+    setTheme(getTheme());
+  </script>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="wrapper">
+      <a class="site-title" href="/">
+        <span class="logo">🪲</span>
+        initdotbug
+      </a>
+
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="m18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484s0.665-1.484,1.484-1.484 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          <a class="page-link" href="/">Home</a>
+          <a class="page-link" href="/projects/">Projects</a>
+          <a class="page-link" href="/blog/">Blog</a>
+          <a class="page-link" href="/notes/">Notes</a>
+          <a class="page-link" href="/categories/">Categories</a>
+          <a class="page-link" href="/about/">About</a>
+          
+          <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+            <span class="theme-icon">🌙</span>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-content">
+    <div class="wrapper">
+      <div class="blog-page">
+  <header class="page-header">
+    <h1>Blog Posts</h1>
+    <p>Thoughts, tutorials, and insights on software development</p>
+  </header>
+
+  <div class="blog-content">
+    <div class="search-box">
+      <input type="text" id="search-input" placeholder="Search posts..." autocomplete="off">
+      <div id="search-results" class="search-results"></div>
+    </div>
+
+    <div class="posts-container">
+      
+    </div>
+
+    <!-- Pagination -->
+    
+  </div>
+</div>
+
+<script>
+  // Simple search functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('search-input');
+    const searchResults = document.getElementById('search-results');
+    const posts = [
+      
+        {
+          title: "Welcome to initdotbug",
+          url: "/dev%20life/2025/01/15/welcome-to-initdotbug.html",
+          excerpt: "Introducing initdotbug - a developer&#39;s journey through code, learning, and experiments. Discover what this blog is about and what you can expect.",
+          tags: ["introduction","blog","developer-journey"]
+        }
+      
+    ];
+
+    searchInput.addEventListener('input', function() {
+      const query = this.value.toLowerCase().trim();
+      
+      if (query.length < 2) {
+        searchResults.style.display = 'none';
+        return;
+      }
+
+      const filteredPosts = posts.filter(post => 
+        post.title.toLowerCase().includes(query) ||
+        post.excerpt.toLowerCase().includes(query) ||
+        post.tags.some(tag => tag.toLowerCase().includes(query))
+      );
+
+      if (filteredPosts.length > 0) {
+        searchResults.innerHTML = filteredPosts.slice(0, 5).map(post => 
+          `<div class="search-result">
+            <a href="${post.url}">${post.title}</a>
+            <p>${post.excerpt.substring(0, 150)}...</p>
+          </div>`
+        ).join('');
+        searchResults.style.display = 'block';
+      } else {
+        searchResults.innerHTML = '<div class="search-result">No posts found</div>';
+        searchResults.style.display = 'block';
+      }
+    });
+
+    // Hide search results when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+        searchResults.style.display = 'none';
+      }
+    });
+  });
+</script>
+
+<style>
+  .blog-page {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-color);
+    }
+    
+    p {
+      font-size: 1.1rem;
+      color: #666;
+    }
+  }
+
+  .search-box {
+    position: relative;
+    margin-bottom: 2rem;
+    
+    #search-input {
+      width: 100%;
+      padding: 1rem;
+      border: 2px solid var(--border-color);
+      border-radius: 8px;
+      font-size: 1rem;
+      background-color: var(--card-bg);
+      color: var(--text-color);
+      
+      &:focus {
+        outline: none;
+        border-color: var(--brand-color);
+      }
+    }
+    
+    .search-results {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      z-index: 10;
+      display: none;
+      
+      .search-result {
+        padding: 1rem;
+        border-bottom: 1px solid var(--border-color);
+        
+        &:last-child {
+          border-bottom: none;
+        }
+        
+        a {
+          color: var(--link-color);
+          text-decoration: none;
+          font-weight: 600;
+          
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+        
+        p {
+          margin: 0.5rem 0 0 0;
+          font-size: 0.9rem;
+          color: #666;
+        }
+      }
+    }
+  }
+
+  .post-preview {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    .post-preview-header {
+      margin-bottom: 1rem;
+      
+      h2 {
+        margin: 0 0 0.5rem 0;
+        
+        a {
+          color: var(--text-color);
+          text-decoration: none;
+          
+          &:hover {
+            color: var(--link-color);
+          }
+        }
+      }
+      
+      .post-meta {
+        color: #666;
+        font-size: 0.9rem;
+        
+        .reading-time {
+          margin-left: 1rem;
+          padding-left: 1rem;
+          border-left: 1px solid var(--border-color);
+        }
+      }
+    }
+    
+    .post-excerpt {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+      color: var(--text-color);
+    }
+    
+    .post-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      
+      .tag {
+        background-color: var(--brand-color);
+        color: white;
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+      
+      .tag-more {
+        color: #666;
+        font-size: 0.8rem;
+        font-style: italic;
+      }
+    }
+    
+    .post-preview-footer {
+      .read-more {
+        color: var(--link-color);
+        text-decoration: none;
+        font-weight: 600;
+        
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+    
+    .pagination-link {
+      color: var(--link-color);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border: 2px solid var(--link-color);
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        background-color: var(--link-color);
+        color: white;
+      }
+    }
+    
+    .pagination-info {
+      color: #666;
+      font-weight: 500;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .post-preview {
+      padding: 1.5rem;
+    }
+    
+    .pagination {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+</style>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrapper">
+      <div class="footer-content">
+        <div class="footer-col">
+          <p>A developer&#39;s journey through code, learning, and experiments. Sharing insights, projects, and quick references for the tech community.</p>
+        </div>
+        <div class="footer-col">
+          <p>
+            <a href="https://anvndev.github.io/anvndev">
+              <svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg"></use></svg>
+              <span class="username">anvndev</span>
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const currentTheme = getTheme();
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      setTheme(newTheme);
+      updateThemeIcon(newTheme);
+    }
+
+    function updateThemeIcon(theme) {
+      const icon = document.querySelector('.theme-icon');
+      icon.textContent = theme === 'light' ? '🌙' : '☀️';
+    }
+
+    // Initialize theme icon
+    document.addEventListener('DOMContentLoaded', () => {
+      updateThemeIcon(getTheme());
+    });
+  </script>
+</body>
+</html>
