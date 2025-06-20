@@ -604,43 +604,42 @@ body {
 
 // Footer styles
 .site-footer {
-  background-color: var(--card-bg);
-  border-top: 1px solid var(--border-color);
-  margin-top: 4rem;
-  padding: 2rem 0;
+  display: flex;
+  justify-content: center;
 
   .footer-content {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 2rem;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
+    width: 100%;
+    gap: 2rem;
 
     .footer-col {
-      p {
-        margin: 0;
-        color: var(--text-color);
-      }
+      display: flex;
+      align-items: center;
+      gap: 1rem;
 
       a {
-        color: var(--link-color);
-        text-decoration: none;
         display: flex;
         align-items: center;
         gap: 0.5rem;
+        color: var(--link-color);
+        text-decoration: none;
 
         &:hover {
           text-decoration: underline;
         }
-      }
 
-      .svg-icon {
-        width: 1.2rem;
-        height: 1.2rem;
-        fill: currentColor;
+        .svg-icon {
+          width: 1.2rem;
+          height: 1.2rem;
+          fill: currentColor;
+        }
       }
     }
   }
 }
+
 
 // Utility classes
 .text-center {
