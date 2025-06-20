@@ -4,6 +4,7 @@ date: 2025-01-15
 categories: ["Dev Life"]
 tags: ["introduction", "blog", "developer-journey"]
 reading_time: 3
+image: "https://raw.githubusercontent.com/andev0x/description-image-archive/45c20a891cfc1a934ad645bc11288c652aa93736/initdotbug/p1.png"
 excerpt: "Introducing initdotbug - a developer's journey through code, learning, and experiments. Discover what this blog is about and what you can expect."
 ---
 

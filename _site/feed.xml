@@ -1,4 +1,191 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-06-20T00:59:37+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">initdotbug</title><subtitle>A developer&apos;s journey through code, learning, and experiments. Sharing insights, projects, and quick references for the tech community.</subtitle><entry><title type="html">Welcome to initdotbug</title><link href="http://localhost:4000/dev%20life/2025/01/15/welcome-to-initdotbug.html" rel="alternate" type="text/html" title="Welcome to initdotbug" /><published>2025-01-15T00:00:00+00:00</published><updated>2025-01-15T00:00:00+00:00</updated><id>http://localhost:4000/dev%20life/2025/01/15/welcome-to-initdotbug</id><content type="html" xml:base="http://localhost:4000/dev%20life/2025/01/15/welcome-to-initdotbug.html"><![CDATA[<h1 id="welcome-to-initdotbug-">Welcome to initdotbug! 🐛</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-06-20T01:54:33+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">initdotbug</title><subtitle>A developer&apos;s journey through code, learning, and experiments. Sharing insights, projects, and quick references for the tech community.</subtitle><entry><title type="html"></title><link href="http://localhost:4000/2025/06/20/2025-06-20-how-to-setup-ssh.html" rel="alternate" type="text/html" title="" /><published>2025-06-20T01:54:33+00:00</published><updated>2025-06-20T01:54:33+00:00</updated><id>http://localhost:4000/2025/06/20/2025-06-20-how-to-setup-ssh</id><content type="html" xml:base="http://localhost:4000/2025/06/20/2025-06-20-how-to-setup-ssh.html"><![CDATA[<h1 id="how-to-set-up-ssh-for-github-on-macoslinux-">How to Set Up SSH for GitHub on macOS/Linux 🔐</h1>
+
+<p>Using SSH keys with GitHub enhances your security and streamlines your Git workflow by eliminating the need to enter your username and password every time. In this guide, I’ll walk you through setting up SSH authentication for GitHub on <strong>macOS</strong> and <strong>Linux</strong>.</p>
+
+<p>Whether you’re setting this up for the first time or need a refresher, this post has got you covered.</p>
+
+<hr />
+
+<h2 id="-why-use-ssh-instead-of-https">🔧 Why Use SSH Instead of HTTPS?</h2>
+
+<p>While GitHub supports both HTTPS and SSH, using SSH has some key advantages:</p>
+
+<ul>
+  <li>✅ Secure authentication using cryptographic keys</li>
+  <li>✅ No need to enter your GitHub credentials every push or pull</li>
+  <li>✅ Works seamlessly with automation and scripting</li>
+</ul>
+
+<hr />
+
+<h2 id="️-step-by-step-guide">🛠️ Step-by-Step Guide</h2>
+
+<h3 id="1-check-for-existing-ssh-keys">1. <strong>Check for Existing SSH Keys</strong></h3>
+
+<p>Open your terminal and run:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ls</span> <span class="nt">-al</span> ~/.ssh
+</code></pre></div></div>
+
+<p>Look for files like:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">id_rsa</code> and <code class="language-plaintext highlighter-rouge">id_rsa.pub</code></li>
+  <li>or <code class="language-plaintext highlighter-rouge">id_ed25519</code> and <code class="language-plaintext highlighter-rouge">id_ed25519.pub</code></li>
+</ul>
+
+<blockquote>
+  <p>If you already have a key, you can skip to <a href="#3-add-your-ssh-key-to-the-ssh-agent">Step 3</a></p>
+</blockquote>
+
+<hr />
+
+<h3 id="2-generate-a-new-ssh-key">2. <strong>Generate a New SSH Key</strong></h3>
+
+<p>If you don’t have one, generate a new SSH key:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh-keygen <span class="nt">-t</span> ed25519 <span class="nt">-C</span> <span class="s2">"your_email@example.com"</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">-C</code> adds a label for your key (your GitHub email).</p>
+</blockquote>
+
+<p>If you’re on an older system that doesn’t support <code class="language-plaintext highlighter-rouge">ed25519</code>, use:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh-keygen <span class="nt">-t</span> rsa <span class="nt">-b</span> 4096 <span class="nt">-C</span> <span class="s2">"your_email@example.com"</span>
+</code></pre></div></div>
+
+<p>Press <code class="language-plaintext highlighter-rouge">Enter</code> to accept the default file path, and set a <strong>passphrase</strong> (optional but recommended).</p>
+
+<hr />
+
+<h3 id="3-add-your-ssh-key-to-the-ssh-agent">3. <strong>Add Your SSH Key to the SSH Agent</strong></h3>
+
+<p>Start the agent and add your key:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Start the SSH agent</span>
+<span class="nb">eval</span> <span class="s2">"</span><span class="si">$(</span>ssh-agent <span class="nt">-s</span><span class="si">)</span><span class="s2">"</span>
+
+<span class="c"># Add the key</span>
+ssh-add ~/.ssh/id_ed25519
+</code></pre></div></div>
+
+<blockquote>
+  <p>Replace with <code class="language-plaintext highlighter-rouge">id_rsa</code> if you used RSA.</p>
+</blockquote>
+
+<hr />
+
+<h3 id="4-copy-your-public-key">4. <strong>Copy Your Public Key</strong></h3>
+
+<p>Run this command to copy the key to your clipboard:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pbcopy &lt; ~/.ssh/id_ed25519.pub     <span class="c"># macOS</span>
+xclip <span class="nt">-sel</span> clip &lt; ~/.ssh/id_ed25519.pub  <span class="c"># Linux (with xclip installed)</span>
+</code></pre></div></div>
+
+<p>Alternatively, just open and copy it manually:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> ~/.ssh/id_ed25519.pub
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="5-add-the-key-to-github">5. <strong>Add the Key to GitHub</strong></h3>
+
+<ol>
+  <li>Go to <a href="https://github.com/settings/keys">GitHub SSH Keys</a></li>
+  <li>Click <strong>“New SSH key”</strong></li>
+  <li>Paste the key</li>
+  <li>Give it a meaningful <strong>title</strong></li>
+  <li>Click <strong>“Add SSH key”</strong></li>
+</ol>
+
+<hr />
+
+<h3 id="6-test-your-connection">6. <strong>Test Your Connection</strong></h3>
+
+<p>Verify that everything works:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh <span class="nt">-T</span> git@github.com
+</code></pre></div></div>
+
+<p>If successful, you’ll see a message like:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Hi username! You've successfully authenticated, but GitHub does not provide shell access.
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="7-configure-git-to-use-ssh-by-default-optional">7. <strong>Configure Git to Use SSH by Default (Optional)</strong></h3>
+
+<p>If your Git remotes use HTTPS, you can switch to SSH:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote set-url origin git@github.com:username/repo.git
+</code></pre></div></div>
+
+<p>You can check your current remote with:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote <span class="nt">-v</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="-tip-multiple-github-accounts">🧠 Tip: Multiple GitHub Accounts?</h2>
+
+<p>If you’re using multiple GitHub accounts (e.g., personal &amp; work), you can configure SSH config:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># ~/.ssh/config</span>
+Host github.com
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_ed25519
+
+<span class="c"># For work account</span>
+Host github-work
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_work_ed25519
+</code></pre></div></div>
+
+<p>Then in your Git remote:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote set-url origin git@github-work:username/repo.git
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="-final-thoughts">✅ Final Thoughts</h2>
+
+<p>SSH keys are a secure and convenient way to manage GitHub authentication. Once set up, they save you time and improve your workflow. This setup works well with Git clients, CI/CD tools, and automation scripts.</p>
+
+<p>For a smoother dev experience, I recommend:</p>
+
+<ul>
+  <li>Backing up your SSH keys securely</li>
+  <li>Using a passphrase-protected key</li>
+  <li>Exploring <code class="language-plaintext highlighter-rouge">~/.ssh/config</code> for advanced use</li>
+</ul>
+
+<hr />
+
+<p><em>No more typing passwords. Just code, commit, and push!</em> 🚀</p>
+
+<hr />
+
+<p><strong>Related posts:</strong></p>
+
+<ul>
+  <li><a href="../cheatsheets/git-commands">Essential Git Commands Cheatsheet</a></li>
+  <li><a href="../dev-setup/neovim-git">Neovim + Git Integration Tips</a></li>
+  <li><a href="../tools/dotfiles-setup">Dotfiles for Terminal Productivity</a></li>
+</ul>
+
+<hr />
+
+<p>Happy coding,<br />
+<strong><a href="https://github.com/anvndev">anvndev</a></strong> ☕</p>]]></content><author><name></name></author></entry><entry><title type="html">Welcome to initdotbug</title><link href="http://localhost:4000/dev%20life/2025/01/15/welcome-to-initdotbug.html" rel="alternate" type="text/html" title="Welcome to initdotbug" /><published>2025-01-15T00:00:00+00:00</published><updated>2025-01-15T00:00:00+00:00</updated><id>http://localhost:4000/dev%20life/2025/01/15/welcome-to-initdotbug</id><content type="html" xml:base="http://localhost:4000/dev%20life/2025/01/15/welcome-to-initdotbug.html"><![CDATA[<h1 id="welcome-to-initdotbug-">Welcome to initdotbug! 🐛</h1>
 
 <p>Hello and welcome to <strong>initdotbug</strong> - my personal corner of the internet where I document my journey as a developer, share insights, and explore the ever-evolving world of technology.</p>
 
@@ -121,4 +308,4 @@
 
 <hr />
 
-<p><em>Happy coding, and remember: every bug is just an opportunity to learn something new!</em> 🚀</p>]]></content><author><name></name></author><category term="Dev Life" /><category term="introduction" /><category term="blog" /><category term="developer-journey" /><summary type="html"><![CDATA[Introducing initdotbug - a developer's journey through code, learning, and experiments. Discover what this blog is about and what you can expect.]]></summary></entry></feed>
+<p><em>Happy coding, and remember: every bug is just an opportunity to learn something new!</em> 🚀</p>]]></content><author><name></name></author><category term="Dev Life" /><category term="introduction" /><category term="blog" /><category term="developer-journey" /><summary type="html"><![CDATA[Introducing initdotbug - a developer's journey through code, learning, and experiments. Discover what this blog is about and what you can expect.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://raw.githubusercontent.com/andev0x/description-image-archive/45c20a891cfc1a934ad645bc11288c652aa93736/initdotbug/p1.png" /><media:content medium="image" url="https://raw.githubusercontent.com/andev0x/description-image-archive/45c20a891cfc1a934ad645bc11288c652aa93736/initdotbug/p1.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
