@@ -1149,32 +1149,32 @@ body {
 }
 
 .site-footer {
-  background-color: var(--card-bg);
-  border-top: 1px solid var(--border-color);
-  margin-top: 4rem;
-  padding: 2rem 0;
+  display: flex;
+  justify-content: center;
 }
 .site-footer .footer-content {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 2rem;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+  width: 100%;
+  gap: 2rem;
 }
-.site-footer .footer-content .footer-col p {
-  margin: 0;
-  color: var(--text-color);
+.site-footer .footer-content .footer-col {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 .site-footer .footer-content .footer-col a {
-  color: var(--link-color);
-  text-decoration: none;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  color: var(--link-color);
+  text-decoration: none;
 }
 .site-footer .footer-content .footer-col a:hover {
   text-decoration: underline;
 }
-.site-footer .footer-content .footer-col .svg-icon {
+.site-footer .footer-content .footer-col a .svg-icon {
   width: 1.2rem;
   height: 1.2rem;
   fill: currentColor;
