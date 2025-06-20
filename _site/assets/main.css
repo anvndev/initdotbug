@@ -1220,5 +1220,19 @@ body {
     opacity: 0.1;
   }
 }
+.post-image {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.post-image-img {
+  border-radius: 5%;
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
 
 /*# sourceMappingURL=main.css.map */

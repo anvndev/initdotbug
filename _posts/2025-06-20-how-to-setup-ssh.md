@@ -4,7 +4,7 @@ date: 2025-06-20
 categories: ["Dev Setup & Tools"]
 tags: ["ssh", "git", "github", "security", "cheatsheet"]
 reading_time: 5
-image: "https://raw.githubusercontent.com/andev0x/description-image-archive/45c20a891cfc1a934ad645bc11288c652aa93736/initdotbug/p2.png"
+image: "https://imgs.search.brave.com/Ee4BtHb71jtWyzceZbYmc_am90Pnwz13sdWlJlkqO3E/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzA0Lzc3LzkzLzI5/LzM2MF9GXzQ3Nzkz/Mjk1OF9nUzFadWdW/WFlLRG5leTk2RDlu/SnlaQUFMOEJyMEd6/YS5qcGc"
 excerpt: "A step-by-step guide to setting up SSH authentication for GitHub on macOS and Linux. Secure your Git workflow and say goodbye to typing passwords."
 ---
 
