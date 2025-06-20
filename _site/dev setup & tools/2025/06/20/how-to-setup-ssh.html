@@ -5,21 +5,23 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>initdotbug | A developer’s journey through code, learning, and experiments. Sharing insights, projects, and quick references for the tech community.</title>
+<title>How to Set Up SSH for GitHub on macOS/Linux | initdotbug</title>
 <meta name="generator" content="Jekyll v4.3.4" />
-<meta property="og:title" content="initdotbug" />
+<meta property="og:title" content="How to Set Up SSH for GitHub on macOS/Linux" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="A developer’s journey through code, learning, and experiments. Sharing insights, projects, and quick references for the tech community." />
-<meta property="og:description" content="A developer’s journey through code, learning, and experiments. Sharing insights, projects, and quick references for the tech community." />
-<link rel="canonical" href="http://localhost:4000/2025/06/20/2025-06-20-how-to-setup-ssh.html" />
-<meta property="og:url" content="http://localhost:4000/2025/06/20/2025-06-20-how-to-setup-ssh.html" />
+<meta name="description" content="A step-by-step guide to setting up SSH authentication for GitHub on macOS and Linux. Secure your Git workflow and say goodbye to typing passwords." />
+<meta property="og:description" content="A step-by-step guide to setting up SSH authentication for GitHub on macOS and Linux. Secure your Git workflow and say goodbye to typing passwords." />
+<link rel="canonical" href="http://localhost:4000/dev%20setup%20&%20tools/2025/06/20/how-to-setup-ssh.html" />
+<meta property="og:url" content="http://localhost:4000/dev%20setup%20&%20tools/2025/06/20/how-to-setup-ssh.html" />
 <meta property="og:site_name" content="initdotbug" />
+<meta property="og:image" content="https://raw.githubusercontent.com/andev0x/description-image-archive/45c20a891cfc1a934ad645bc11288c652aa93736/initdotbug/p2.png" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-06-20T01:54:33+00:00" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="initdotbug" />
+<meta property="article:published_time" content="2025-06-20T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://raw.githubusercontent.com/andev0x/description-image-archive/45c20a891cfc1a934ad645bc11288c652aa93736/initdotbug/p2.png" />
+<meta property="twitter:title" content="How to Set Up SSH for GitHub on macOS/Linux" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-06-20T01:54:33+00:00","datePublished":"2025-06-20T01:54:33+00:00","description":"A developer’s journey through code, learning, and experiments. Sharing insights, projects, and quick references for the tech community.","headline":"initdotbug","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2025/06/20/2025-06-20-how-to-setup-ssh.html"},"url":"http://localhost:4000/2025/06/20/2025-06-20-how-to-setup-ssh.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-06-20T00:00:00+00:00","datePublished":"2025-06-20T00:00:00+00:00","description":"A step-by-step guide to setting up SSH authentication for GitHub on macOS and Linux. Secure your Git workflow and say goodbye to typing passwords.","headline":"How to Set Up SSH for GitHub on macOS/Linux","image":"https://raw.githubusercontent.com/andev0x/description-image-archive/45c20a891cfc1a934ad645bc11288c652aa93736/initdotbug/p2.png","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/dev%20setup%20&%20tools/2025/06/20/how-to-setup-ssh.html"},"url":"http://localhost:4000/dev%20setup%20&%20tools/2025/06/20/how-to-setup-ssh.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css">
   <link rel="icon" type="./img/" href="/assets/img/initdotbug.png"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="initdotbug" /><script>
@@ -74,17 +76,33 @@
     <div class="wrapper">
       <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline"></h1>
+    <h1 class="post-title p-name" itemprop="name headline">How to Set Up SSH for GitHub on macOS/Linux</h1>
     <div class="post-meta">
-      <time class="dt-published" datetime="2025-06-20T01:54:33+00:00" itemprop="datePublished">
+      <time class="dt-published" datetime="2025-06-20T00:00:00+00:00" itemprop="datePublished">
         June 20, 2025
       </time>
       
+      
+        <span class="reading-time">5 min read</span>
       
       
       
     </div>
     
+    
+      <div class="post-tags">
+        
+          <span class="tag">ssh</span>
+        
+          <span class="tag">git</span>
+        
+          <span class="tag">github</span>
+        
+          <span class="tag">security</span>
+        
+          <span class="tag">cheatsheet</span>
+        
+      </div>
     
   </header>
 
@@ -282,12 +300,19 @@ Host github-work
 
   <footer class="post-footer">
     
+      <div class="post-categories">
+        <strong>Categories:</strong>
+        
+          <a href="/category-dev-setup-tools" class="category-link">Dev Setup & Tools</a>
+        
+      </div>
+    
 
     <div class="social-share">
       <strong>Share:</strong>
-      <a href="https://twitter.com/intent/tweet?text=&url=http://localhost:4000/2025/06/20/2025-06-20-how-to-setup-ssh.html" 
+      <a href="https://twitter.com/intent/tweet?text=How+to+Set+Up+SSH+for+GitHub+on+macOS%2FLinux&url=http://localhost:4000/dev%20setup%20&%20tools/2025/06/20/how-to-setup-ssh.html" 
          class="share-link twitter" target="_blank" rel="noopener">Twitter</a>
-      <a href="https://www.linkedin.com/sharing/share-offsite/?url=http://localhost:4000/2025/06/20/2025-06-20-how-to-setup-ssh.html" 
+      <a href="https://www.linkedin.com/sharing/share-offsite/?url=http://localhost:4000/dev%20setup%20&%20tools/2025/06/20/how-to-setup-ssh.html" 
          class="share-link linkedin" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </footer>
