@@ -938,7 +938,7 @@ body {
   overflow-x: auto;
 }
 .post .post-content pre code {
-  background: black;
+  background: none;
   padding: 0;
 }
 .post .post-content blockquote {

@@ -19,7 +19,7 @@ layout: default
       <div class="content-card">
         <h3>💻 Latest Projects</h3>
         <ul class="post-list">
-          {% for project in site.projects limit:4 %}
+          {% for project in site.projects limit:1 %}
             <li><a href="{{ project.url | relative_url }}">{{ project.title }}</a></li>
           {% endfor %}
         </ul>
@@ -29,7 +29,7 @@ layout: default
       <div class="content-card">
         <h3>📝 Recent Posts</h3>
         <ul class="post-list">
-          {% for post in site.posts limit:4 %}
+          {% for post in site.posts limit:1 %}
             <li>
               <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
               <span class="post-meta">{{ post.date | date: site.date_format }}</span>
@@ -42,7 +42,7 @@ layout: default
       <div class="content-card">
         <h3>🔧 Quick Notes</h3>
         <ul class="post-list">
-          {% for note in site.notes limit:4 %}
+          {% for note in site.notes limit:1 %}
             <li><a href="{{ note.url | relative_url }}">{{ note.title }}</a></li>
           {% endfor %}
         </ul>

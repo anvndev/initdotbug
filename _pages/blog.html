@@ -2,6 +2,8 @@
 layout: default
 title: Blog
 permalink: /blog/
+pagination:
+  enabled: true
 ---
 
 <div class="blog-page">
@@ -17,7 +19,8 @@ permalink: /blog/
     </div>
 
     <div class="posts-container">
-      {% for post in paginator.posts %}
+      {% assign posts = paginator.posts | default: site.posts %}
+      {% for post in posts %}
         <article class="post-preview">
           <header class="post-preview-header">
             <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
